@@ -8,7 +8,7 @@ import json
 from .constants import *
 from connectors.core.connector import get_logger, ConnectorError
 
-logger = get_logger('manage-engine-service-desk-plus')
+logger = get_logger('manage-engine-service-desk-plus-msp')
 
 
 class ManageEngine:
