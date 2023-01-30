@@ -7,7 +7,7 @@
       "name": "Sample - ManageEngine ServiceDesk Plus MSP - 1.0.0",
       "description": "Sample playbooks for \"ManageEngine ServiceDesk Plus MSP\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
       "visible": true,
-      "image": "/api/3/images/98caa9db-2bbe-45c1-a37a-a806f7d206aa",
+      "image": "",
       "id": 241,
       "createDate": 1674477126.802584,
       "modifyDate": 1674477126.802584,
