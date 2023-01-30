@@ -1757,11 +1757,7 @@
           "editable": true,
           "type": "text",
           "tooltip": "Specify the email ID of the user whose details you want to retrieve from ServiceDesk Plus MSP.",
-          "description": "Specify the email ID of the user whose details you want to retrieve from ServiceDesk Plus MSP.",
-          "options": [
-            "True",
-            "False"
-          ]
+          "description": "Specify the email ID of the user whose details you want to retrieve from ServiceDesk Plus MSP."
         },
         {
           "title": "User Type",
