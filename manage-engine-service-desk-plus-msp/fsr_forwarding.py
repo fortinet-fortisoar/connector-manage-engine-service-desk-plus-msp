@@ -16,8 +16,8 @@ timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
 
 
 def connector(data_dict):
-    host_uri = 'icon.fortinet.com'
-    full_uri = 'https://' + host_uri + '/api/triggers/1/ManageEngine'
+    host_uri = 'Specify the FortiSOAR server URL'
+    full_uri = 'https://' + host_uri + '/api/triggers/1/ManageEngineMSP'
 
     key_path = join(os.path.dirname(os.path.abspath(__file__)), 'keys')
     with open(join(key_path, 'APPLIANCE_PUBLIC_KEY'), 'r') as public:

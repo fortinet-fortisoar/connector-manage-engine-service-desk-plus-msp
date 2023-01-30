@@ -8,7 +8,7 @@ from connectors.core.connector import get_logger, ConnectorError
 from .operations import operations, check_health
 
 
-logger = get_logger('manage-engine-service-desk-plus')
+logger = get_logger('manage-engine-service-desk-plus-msp')
 
 
 class Manage_Engine(Connector):

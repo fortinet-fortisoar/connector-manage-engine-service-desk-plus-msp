@@ -1,7 +1,7 @@
 {
   "name": "manage-engine-service-desk-plus-msp",
-  "label": "ManageEngine ServiceDesk Plus MSP MSP",
-  "description": "ServiceDesk Plus MSP MSP is a web based, full-fledged ITSM suite designed specifically for managed service providers. This all-in-one ITSM solution delivers comprehensive help desk, service desk, account management, asset management, remote controls and advanced reporting in a multi-tenant architecture with robust data segregation. It empowers service providers to offer services and support to multiple clients with centralized controls.This connector provides automated actions to create, update, delete and close tickets",
+  "label": "ManageEngine ServiceDesk Plus MSP",
+  "description": "ServiceDesk Plus MSP is a web based, full-fledged ITSM suite designed specifically for managed service providers. This all-in-one ITSM solution delivers comprehensive help desk, service desk, account management, asset management, remote controls and advanced reporting in a multi-tenant architecture with robust data segregation. It empowers service providers to offer services and support to multiple clients with centralized controls.This connector provides automated actions to create, update, delete and close tickets",
   "publisher": "Fortinet",
   "cs_approved": true,
   "cs_compatible": true,
@@ -253,7 +253,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "text",
+          "type": "integer",
           "name": "from",
           "value": 1,
           "tooltip": "Specify the index of the first item (open tickets) to be returned by this operation. This parameter is useful if you want to get a subset of records. By default, this is set as 1.",
@@ -264,7 +264,7 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "text",
+          "type": "integer",
           "name": "limit",
           "tooltip": "Specify the index till when, i.e. the last item (open tickets) to be returned by this operation.",
           "description": "Specify the index till when, i.e. the last item (open tickets) to be returned by this operation."
@@ -933,7 +933,7 @@
           "description": "Select this option if the ticket that you want to close in ServiceDesk Plus MSP has been marked as First Call Resolution (FCR)."
         },
         {
-          "title": "Has requester acknowledged the resolution?",
+          "title": "Has Requester Acknowledged The Resolution?",
           "required": true,
           "editable": true,
           "visible": true,
@@ -1208,8 +1208,8 @@
       "annotation": "delete_request_from_trash",
       "output_schema": {
         "response_status": {
-          "status_code": 2000,
-          "status": "success"
+          "status_code": "",
+          "status": ""
         }
       },
       "enabled": true,
@@ -1234,15 +1234,15 @@
       "annotation": "add_resolution",
       "output_schema": {
         "response_status": {
-          "status_code": 2000,
+          "status_code": "",
           "messages": [
             {
-              "status_code": 2000,
-              "type": "success",
-              "message": "Resolution added successfully."
+              "status_code": "",
+              "type": "",
+              "message": ""
             }
           ],
-          "status": "success"
+          "status": ""
         }
       },
       "enabled": true,
@@ -1730,7 +1730,7 @@
           "description": "Specify the ID of the user whose details you want to retrieve from ServiceDesk Plus MSP."
         },
         {
-          "title": "Name",
+          "title": "User Name",
           "name": "name",
           "visible": true,
           "required": false,
@@ -1764,7 +1764,7 @@
           ]
         },
         {
-          "title": "Type",
+          "title": "User Type",
           "name": "type",
           "visible": true,
           "required": false,
