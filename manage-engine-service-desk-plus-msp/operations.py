@@ -86,36 +86,32 @@ def check_health(config):
 
 def add_request(config, params):
     obj = ManageEngine(config)
-    try:
-        payload = {}
-        status = params.pop("status", '')
-        if status:
-            payload.update({"status": {"name": status}})
-        urgency = params.pop("urgency", '')
-        if urgency:
-            payload.update({"urgency": {"name": urgency}})
-        priority = params.pop("priority", '')
-        if priority:
-            payload.update({"priority": {"name": priority}})
-        requester = params.pop("requester", '')
-        if requester:
-            payload.update({"requester": requester})
-        request_type = params.pop("request_type", '')
-        if request_type:
-            payload["request_type"] = {"name": request_type}
-        group = params.pop("group", "")
-        if group:
-            payload["group"] = {"name": group}
-        other_fields = params.pop('other_fields', '')
-        payload.update(build_payload(params))
-        if other_fields:
-            payload.update(other_fields)
-        input_data = json.dumps({"request": payload})
-        data = {"input_data": input_data}
-        return obj.make_api_call(config, method='POST', endpoint=REQUEST_ENDPOINT, data=data)
-    except Exception as Err:
-        logger.error('Exception occurred: {0}'.format(Err))
-        raise ConnectorError(Err)
+    payload = {}
+    status = params.pop("status", '')
+    if status:
+        payload.update({"status": {"name": status}})
+    urgency = params.pop("urgency", '')
+    if urgency:
+        payload.update({"urgency": {"name": urgency}})
+    priority = params.pop("priority", '')
+    if priority:
+        payload.update({"priority": {"name": priority}})
+    requester = params.pop("requester", '')
+    if requester:
+        payload.update({"requester": requester})
+    request_type = params.pop("request_type", '')
+    if request_type:
+        payload["request_type"] = {"name": request_type}
+    group = params.pop("group", "")
+    if group:
+        payload["group"] = {"name": group}
+    other_fields = params.pop('other_fields', '')
+    payload.update(build_payload(params))
+    if other_fields:
+        payload.update(other_fields)
+    input_data = json.dumps({"request": payload})
+    data = {"input_data": input_data}
+    return obj.make_api_call(config, method='POST', endpoint=REQUEST_ENDPOINT, data=data)
 
 
 def update_request(config, params):
@@ -163,14 +159,13 @@ def get_request(config, params):
     return obj.make_api_call(config, method='GET', endpoint=REQUEST_ENDPOINT + "/" + request_id)
 
 
-def get_all_open_requests(config, params):
+def get_all_requests(config, params):
     obj = ManageEngine(config)
     start = params.pop("from", 1)
-    limit = params.pop("limit", '')
+    size = params.pop("size", '')
     sort_order = params.pop('sort_order', '')
     sort_field = params.pop('sort_field', '')
     other_fields = params.pop("other_fields", '')
-    params["status.name"] = "Open"
     if other_fields:
         params.update(other_fields)
     payload = build_payload(params)
@@ -179,8 +174,8 @@ def get_all_open_requests(config, params):
         "get_total_count": True,
         "search_fields": payload
     }
-    if limit:
-        list_info["row_count"] = limit
+    if size:
+        list_info["row_count"] = size
     if sort_order:
         list_info["sort_order"] = SORT_ORDER.get(sort_order)
     if sort_field:
@@ -222,7 +217,18 @@ def get_all_users(config, params):
 
 def get_all_sites(config, params):
     obj = ManageEngine(config)
-    response = obj.make_api_call(config, method='GET', endpoint=SITE_ENDPOINT)
+    list_info = {}
+    start_index = params.get('from')
+    if start_index:
+        list_info['start_index'] = start_index
+    row_count = params.get('size')
+    if row_count:
+        list_info['row_count'] = params.get('size')
+    input_data = {
+                'list_info': list_info
+            }
+    payload = {'input_data': json.dumps(input_data)}
+    response = obj.make_api_call(config, method='GET', endpoint=SITE_ENDPOINT, params=payload)
     return response
 
 
@@ -272,17 +278,93 @@ def get_all_accounts(config, params):
     return response
 
 
+def get_all_statuses(config, params):
+    obj = ManageEngine(config)
+    endpoint = STATUS_ENDPOINT
+    input_data = '''{
+        "list_info": {
+            "sort_field": "name",
+            "sort_order": "asc",
+             "row_count":100
+        }
+    }'''
+    payload = {'input_data': input_data}
+    response = obj.make_api_call(config=config, method="GET", endpoint=endpoint, params=payload)
+    result = []
+    for status in response.get('statuses'):
+        result.append(status.get("name"))
+    return result
+
+
+def get_all_priorities(config, params):
+    obj = ManageEngine(config)
+    endpoint = PRIORITY_ENDPOINT
+    input_data = '''{
+        "list_info": {
+            "sort_field": "name",
+            "sort_order": "asc",
+             "row_count":100
+        }
+    }'''
+    payload = {'input_data': input_data}
+    response = obj.make_api_call(config=config, method="GET", endpoint=endpoint, params=payload)
+    result = []
+    for priority in response.get('priorities'):
+        result.append(priority.get("name"))
+    return result
+
+
+def get_all_urgencies(config, params):
+    obj = ManageEngine(config)
+    endpoint = URGENCY_ENDPOINT
+    input_data = '''{
+        "list_info": {
+            "sort_field": "name",
+            "sort_order": "asc",
+            "row_count":100
+        }
+    }'''
+    payload = {'input_data': input_data}
+    response = obj.make_api_call(config=config, method="GET", endpoint=endpoint, params=payload)
+    result = []
+    for priority in response.get('urgencies'):
+        result.append(priority.get("name"))
+    return result
+
+
+def get_all_request_closure_codes(config, params):
+    obj = ManageEngine(config)
+    endpoint = REQUEST_CLOSURE_CODE_ENDPOINT
+    input_data = '''{
+        "list_info": {
+            "sort_field": "name",
+            "sort_order": "asc",
+             "row_count":100
+        }
+    }'''
+    payload = {'input_data': input_data}
+    response = obj.make_api_call(config=config, method="GET", endpoint=endpoint, params=payload)
+    result = []
+    for priority in response.get('request_closure_codes'):
+        result.append(priority.get("name"))
+    return result
+
+
 operations = {
     'add_request': add_request,
     'add_resolution': add_resolution,
     'add_note': add_note,
     'get_request': get_request,
-    'get_all_open_requests': get_all_open_requests,
+    'get_all_requests': get_all_requests,
     'get_all_sites': get_all_sites,
     'update_request': update_request,
     'close_request': close_request,
     'delete_request': delete_request,
     'delete_request_from_trash': delete_request_from_trash,
     'get_all_user': get_all_users,
-    'get_all_accounts': get_all_accounts
+    'get_all_accounts': get_all_accounts,
+    'get_all_statuses': get_all_statuses,
+    'get_all_priorities': get_all_priorities,
+    'get_all_urgencies': get_all_urgencies,
+    'get_all_request_closure_codes': get_all_request_closure_codes
 }
