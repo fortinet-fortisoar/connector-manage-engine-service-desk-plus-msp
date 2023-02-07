@@ -281,13 +281,7 @@ def get_all_accounts(config, params):
 def get_all_statuses(config, params):
     obj = ManageEngine(config)
     endpoint = STATUS_ENDPOINT
-    input_data = '''{
-        "list_info": {
-            "sort_field": "name",
-            "sort_order": "asc",
-             "row_count":100
-        }
-    }'''
+    input_data = json.dumps(LIST_INFO)
     payload = {'input_data': input_data}
     response = obj.make_api_call(config=config, method="GET", endpoint=endpoint, params=payload)
     result = []
@@ -299,13 +293,7 @@ def get_all_statuses(config, params):
 def get_all_priorities(config, params):
     obj = ManageEngine(config)
     endpoint = PRIORITY_ENDPOINT
-    input_data = '''{
-        "list_info": {
-            "sort_field": "name",
-            "sort_order": "asc",
-             "row_count":100
-        }
-    }'''
+    input_data = json.dumps(LIST_INFO)
     payload = {'input_data': input_data}
     response = obj.make_api_call(config=config, method="GET", endpoint=endpoint, params=payload)
     result = []
@@ -317,13 +305,7 @@ def get_all_priorities(config, params):
 def get_all_urgencies(config, params):
     obj = ManageEngine(config)
     endpoint = URGENCY_ENDPOINT
-    input_data = '''{
-        "list_info": {
-            "sort_field": "name",
-            "sort_order": "asc",
-            "row_count":100
-        }
-    }'''
+    input_data = json.dumps(LIST_INFO)
     payload = {'input_data': input_data}
     response = obj.make_api_call(config=config, method="GET", endpoint=endpoint, params=payload)
     result = []
@@ -335,13 +317,7 @@ def get_all_urgencies(config, params):
 def get_all_request_closure_codes(config, params):
     obj = ManageEngine(config)
     endpoint = REQUEST_CLOSURE_CODE_ENDPOINT
-    input_data = '''{
-        "list_info": {
-            "sort_field": "name",
-            "sort_order": "asc",
-             "row_count":100
-        }
-    }'''
+    input_data = json.dumps(LIST_INFO)
     payload = {'input_data': input_data}
     response = obj.make_api_call(config=config, method="GET", endpoint=endpoint, params=payload)
     result = []
