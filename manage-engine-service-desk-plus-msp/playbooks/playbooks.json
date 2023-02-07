@@ -222,10 +222,10 @@
         {
           "@type": "Workflow",
           "triggerLimit": null,
-          "name": "Get All Open Tickets",
+          "name": "Get All Tickets",
           "aliasName": null,
           "tag": "#ManageEngine ServiceDesk Plus MSP",
-          "description": "Retrieves details of all open tickets or specific open tickets from ServiceDesk Plus based on the input parameters you have specified.",
+          "description": "Retrieves details of all tickets or specific tickets from ServiceDesk Plus based on the input parameters you have specified.",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
@@ -239,19 +239,16 @@
           "steps": [
             {
               "@type": "WorkflowStep",
-              "name": "Get All Open Tickets",
+              "name": "Get All Tickets",
               "description": null,
               "arguments": {
                 "name": "ManageEngine ServiceDesk Plus MSP",
                 "config": "''",
-                "params": {
-                  "from": "",
-                  "priority.name": ""
-                },
+                "params": [],
                 "version": "1.0.0",
                 "connector": "manage-engine-service-desk-plus-msp",
-                "operation": "get_all_open_requests",
-                "operationTitle": "Get All Open Tickets",
+                "operation": "get_all_requests",
+                "operationTitle": "Get All Tickets",
                 "step_variables": {
                   "output_data": "{{vars.result}}"
                 }
@@ -269,7 +266,7 @@
               "description": null,
               "arguments": {
                 "route": "05d8f800-3591-49a0-aedb-c40b1c65e6ea",
-                "title": "ManageEngine ServiceDesk Plus MSP: Get All Open Tickets",
+                "title": "ManageEngine ServiceDesk Plus MSP: Get All Tickets",
                 "resources": [
                   "alerts"
                 ],
@@ -294,7 +291,7 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "name": "Start-> Get All Open Tickets",
+              "name": "Start-> Get All Tickets",
               "targetStep": "/api/3/workflow_steps/352f6dac-4080-4b12-b5b9-e594fa07b4a4",
               "sourceStep": "/api/3/workflow_steps/60daaab9-cf8c-4d10-b8bf-e4166b4c5713",
               "label": null,
@@ -321,7 +318,7 @@
           "name": "Create Ticket",
           "aliasName": null,
           "tag": "#ManageEngine ServiceDesk Plus MSP",
-          "description": "Creates a ticket in ServiceDesk Plus based on the requester, subject, and other input parameters you have specified.",
+          "description": "Creates a ticket in ServiceDesk Plus based on the requester, subject, and other input parameters you have specified and an incident record is also created in the FortiSOAR",
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
@@ -340,18 +337,7 @@
               "arguments": {
                 "name": "ManageEngine ServiceDesk Plus MSP",
                 "config": "c0edad82-bb92-49dd-94a4-db7527a3e23b",
-                "params": {
-                  "group": "",
-                  "status": "",
-                  "account": "",
-                  "subject": "",
-                  "urgency": "",
-                  "priority": "",
-                  "requester": "",
-                  "description": "",
-                  "other_fields": "",
-                  "request_type": ""
-                },
+                "params": [],
                 "version": "1.0.0",
                 "connector": "manage-engine-service-desk-plus-msp",
                 "operation": "add_request",
@@ -578,16 +564,7 @@
               "arguments": {
                 "name": "ManageEngine ServiceDesk Plus MSP",
                 "config": "2f3ba3d8-b434-4ccc-9d71-e4db7e346b28",
-                "params": {
-                  "site": "",
-                  "status": "",
-                  "subject": "",
-                  "urgency": "",
-                  "priority": "",
-                  "request_id": "",
-                  "description": "",
-                  "other_fields": ""
-                },
+                "params": [],
                 "version": "1.0.0",
                 "connector": "manage-engine-service-desk-plus-msp",
                 "operation": "update_request",

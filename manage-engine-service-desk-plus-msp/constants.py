@@ -12,3 +12,14 @@ REQUESTER_ENDPOINT = '/api/v3/requests/requester'
 USER_ENDPOINT = '/api/v3/users/'
 SITE_ENDPOINT = '/api/v3/sites'
 ACCOUNT_ENDPOINT = '/sdpapi/admin/account'
+STATUS_ENDPOINT = '/api/v3/statuses'
+PRIORITY_ENDPOINT = '/api/v3/priorities'
+URGENCY_ENDPOINT = '/api/v3/urgencies'
+REQUEST_CLOSURE_CODE_ENDPOINT = '/api/v3/request_closure_codes'
+LIST_INFO = {
+    "list_info": {
+        "sort_field": "name",
+        "sort_order": "asc",
+        "row_count": 100
+    }
+}
