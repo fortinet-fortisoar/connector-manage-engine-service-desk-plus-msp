@@ -209,7 +209,6 @@
           "description": "Select the priority of the ticket request for which you want to retrieve details from ServiceDesk Plus MSP. You can choose between High, Low, Medium, or Normal etc.",
           "apiOperation": "get_all_priorities"
         },
-
         {
           "title": "Requester Name",
           "name": "requester.name",
@@ -1860,9 +1859,9 @@
       },
       "enabled": true,
       "parameters": [
-         {
+        {
           "title": "Start From",
-          "name": "start_index",
+          "name": "from",
           "visible": true,
           "required": false,
           "editable": true,
