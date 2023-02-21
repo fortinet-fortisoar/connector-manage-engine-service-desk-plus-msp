@@ -173,8 +173,8 @@
           "visible": true,
           "type": "text",
           "name": "id",
-          "tooltip": "Specify the ID of the ticket request for which you want to retrieve details from ServiceDesk Plus MSP.",
-          "description": "Specify the ID of the ticket request for which you want to retrieve details from ServiceDesk Plus MSP."
+          "tooltip": "Specify the ID of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP.",
+          "description": "Specify the ID of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP."
         },
         {
           "title": "Subject",
@@ -183,8 +183,8 @@
           "visible": true,
           "type": "text",
           "name": "subject",
-          "tooltip": "Specify the subject of the ticket request for which you want to retrieve details from ServiceDesk Plus MSP.",
-          "description": "Specify the subject of the ticket request for which you want to retrieve details from ServiceDesk Plus MSP."
+          "tooltip": "Specify the subject of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP.",
+          "description": "Specify the subject of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP."
         },
         {
           "title": "Status",
@@ -193,8 +193,8 @@
           "visible": true,
           "type": "select",
           "name": "status.name",
-          "tooltip": "Select the status of the ticket request for which you want to retrieve details from ServiceDesk Plus MSP.",
-          "description": "(Optional) Select the status of the ticket request for which you want to retrieve details from ServiceDesk Plus MSP. You can choose between Assigned, Cancelled, Closed, In Progress, Onhold, Open, Resolved etc.",
+          "tooltip": "Select the status of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP.",
+          "description": "(Optional) Select the status of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP. You can choose between Assigned, Cancelled, Closed, In Progress, Onhold, Open, Resolved etc.",
           "apiOperation": "get_all_statuses"
         },
         {
@@ -205,8 +205,8 @@
           "type": "select",
           "name": "priority.name",
           "value": "",
-          "tooltip": "Select the priority of the ticket request for which you want to retrieve details from ServiceDesk Plus MSP.",
-          "description": "Select the priority of the ticket request for which you want to retrieve details from ServiceDesk Plus MSP. You can choose between High, Low, Medium, or Normal etc.",
+          "tooltip": "Select the priority of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP.",
+          "description": "Select the priority of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP. You can choose between High, Low, Medium, or Normal etc.",
           "apiOperation": "get_all_priorities"
         },
         {
@@ -216,8 +216,8 @@
           "required": false,
           "editable": true,
           "type": "text",
-          "tooltip": "Specify the name of the requester whose tickets details you want to retrieve details from ServiceDesk Plus MSP.",
-          "description": "Specify the name of the requester whose tickets details you want to retrieve details from ServiceDesk Plus MSP."
+          "tooltip": "Specify the name of the requester whose tickets details you want to retrieve tickets from ServiceDesk Plus MSP.",
+          "description": "Specify the name of the requester whose tickets details you want to retrieve tickets from ServiceDesk Plus MSP."
         },
         {
           "title": "Other Fields",
@@ -225,9 +225,20 @@
           "editable": true,
           "visible": true,
           "type": "json",
+          "value": "",
           "name": "other_fields",
           "tooltip": "Specify custom fields, in the JSON format, that you want to use for filtering tickets whose details you want to retrieve from ServiceDesk Plus MSP. For example, {\n  \"urgency.name\": \"Low\"\n}",
           "description": "Specify custom fields, in the JSON format, that you want to use for filtering tickets whose details you want to retrieve from ServiceDesk Plus MSP. For example, {\n  \"urgency.name\": \"Low\"\n}"
+        },
+        {
+          "title": "Filer By",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "json",
+          "name": "filter_by",
+          "tooltip": "Specify the filter details based on which you want to retrieve tickets from ServiceDesk Plus MSP. e.g. {\n  \"name\": \"Open_System\"\n}",
+          "description": "(Optional) Specify the filter details based on which you want to retrieve tickets from ServiceDesk Plus MSP.For example {\n  \"name\": \"Open_System\"\n}"
         },
         {
           "title": "Sort By",
@@ -1559,8 +1570,8 @@
           "visible": true,
           "type": "text",
           "name": "request_id",
-          "tooltip": "Specify the ID of the ticket request for which you want to retrieve details from ServiceDesk Plus MSP.",
-          "description": "Specify the ID of the ticket request for which you want to retrieve details from ServiceDesk Plus MSP."
+          "tooltip": "Specify the ID of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP.",
+          "description": "Specify the ID of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP."
         }
       ]
     },
