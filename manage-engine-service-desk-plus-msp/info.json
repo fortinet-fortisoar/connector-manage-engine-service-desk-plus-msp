@@ -231,7 +231,7 @@
           "description": "Specify custom fields, in the JSON format, that you want to use for filtering tickets whose details you want to retrieve from ServiceDesk Plus MSP. For example, {\n  \"urgency.name\": \"Low\"\n}"
         },
         {
-          "title": "Filer By",
+          "title": "Filter By",
           "required": false,
           "editable": true,
           "visible": true,
@@ -1570,8 +1570,8 @@
           "visible": true,
           "type": "text",
           "name": "request_id",
-          "tooltip": "Specify the ID of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP.",
-          "description": "Specify the ID of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP."
+          "tooltip": "Specify the ID of the ticket request for which you want to retrieve ticket details from ServiceDesk Plus MSP.",
+          "description": "Specify the ID of the ticket request for which you want to retrieve ticket details from ServiceDesk Plus MSP."
         }
       ]
     },
