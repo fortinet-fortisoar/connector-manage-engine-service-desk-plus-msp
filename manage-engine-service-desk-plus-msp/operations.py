@@ -165,6 +165,7 @@ def get_all_requests(config, params):
     size = params.pop("size", '')
     sort_order = params.pop('sort_order', '')
     sort_field = params.pop('sort_field', '')
+    filter_by = params.pop('filter_by', None)
     other_fields = params.pop("other_fields", '')
     if other_fields:
         params.update(other_fields)
@@ -174,6 +175,8 @@ def get_all_requests(config, params):
         "get_total_count": True,
         "search_fields": payload
     }
+    if filter_by:
+        list_info['filter_by'] = filter_by
     if size:
         list_info["row_count"] = size
     if sort_order:
