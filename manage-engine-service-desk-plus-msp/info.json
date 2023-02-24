@@ -9,7 +9,7 @@
   "category": "Ticket Management",
   "icon_small_name": "Manageengine_Servicedesk_Plus_32X32.png",
   "icon_large_name": "Manageengine_Servicedesk_Plus_80X80.png",
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/manageengine-servicedesk-plus-msp/512/manageengine-servicedesk-plus-msp-v1-0-0",
   "configuration": {
     "fields": [
       {
@@ -38,7 +38,7 @@
         "type": "checkbox",
         "name": "verify_ssl",
         "value": true,
-        "description": "Specifies whether the SSL certificate for the server is to be verified or not."
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set to True."
       }
     ]
   },
@@ -174,7 +174,7 @@
           "type": "text",
           "name": "id",
           "tooltip": "Specify the ID of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP.",
-          "description": "Specify the ID of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP."
+          "description": "(Optional) Specify the ID of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP."
         },
         {
           "title": "Subject",
@@ -184,7 +184,7 @@
           "type": "text",
           "name": "subject",
           "tooltip": "Specify the subject of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP.",
-          "description": "Specify the subject of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP."
+          "description": "(Optional) Specify the subject of the ticket request for which you want to retrieve details from ServiceDesk Plus MSP."
         },
         {
           "title": "Status",
@@ -194,7 +194,7 @@
           "type": "select",
           "name": "status.name",
           "tooltip": "Select the status of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP.",
-          "description": "(Optional) Select the status of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP. You can choose between Assigned, Cancelled, Closed, In Progress, Onhold, Open, Resolved etc.",
+          "description": "(Optional) Select the status of the ticket request for which you want to retrieve details from ServiceDesk Plus MSP. You can choose from following options: Assigned, Cancelled, Closed, In Progress, Onhold, Open, Resolved, etc. This parameter makes an API call named get_all_statuses to dynamically populate its dropdown selections.",
           "apiOperation": "get_all_statuses"
         },
         {
@@ -206,7 +206,7 @@
           "name": "priority.name",
           "value": "",
           "tooltip": "Select the priority of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP.",
-          "description": "Select the priority of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP. You can choose between High, Low, Medium, or Normal etc.",
+          "description": "(Optional) Select the priority of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP. You can choose from the following options: High, Low, Medium, Normal, etc.. This parameter will make an API call named get_all_priorities to dynamically populate its dropdown selections.",
           "apiOperation": "get_all_priorities"
         },
         {
@@ -216,8 +216,8 @@
           "required": false,
           "editable": true,
           "type": "text",
-          "tooltip": "Specify the name of the requester whose tickets details you want to retrieve tickets from ServiceDesk Plus MSP.",
-          "description": "Specify the name of the requester whose tickets details you want to retrieve tickets from ServiceDesk Plus MSP."
+          "tooltip": "Specify the name of the requester mentioned in the ticket details to filter the tickets retrieved from ServiceDesk Plus MSP.",
+          "description": "(Optional) Specify the name of the requester mentioned in the ticket details to filter the tickets retrieved from ServiceDesk Plus MSP."
         },
         {
           "title": "Other Fields",
@@ -273,8 +273,8 @@
           "type": "integer",
           "name": "from",
           "value": 1,
-          "tooltip": "Specify the index of the first item (tickets) to be returned by this operation. This parameter is useful if you want to get a subset of records. By default, this is set as 1.",
-          "description": "Specify the index of the first item (tickets) to be returned by this operation. This parameter is useful if you want to get a subset of records. By default, this is set as 1."
+          "tooltip": "Specify the index of the first item to be returned by this operation. This parameter is useful if you want to get a subset of records. By default, this is set as 1. ",
+          "description": "(Optional) Specify the index of the first item to be returned by this operation. This parameter is useful if you want to get a subset of records. By default, this is set as 1."
         },
         {
           "title": "Size",
@@ -284,7 +284,7 @@
           "type": "integer",
           "name": "size",
           "tooltip": "Specify the maximum number of records (tickets) to be returned by this operation in a single request.By default it will retrieve 10 records. Note: You can specify the minimum number as 1 and Maximum of only 100 records can retrieved at a time.",
-          "description": "Specify the index till when, i.e. the last item (tickets) to be returned by this operation in a single request. By default it will retrieve 10 records. Note: You can specify the minimum number as 1 and Maximum of only 100 records can retrieved at a time."
+          "description": "(Optional) Specify the index of the last item to be returned by this operation in a single request. By default, it retrieves 10 records.\nNOTE: You can specify the minimum value as 1 and maximum of 100."
         }
       ]
     },
@@ -489,7 +489,7 @@
           "type": "json",
           "name": "requester",
           "tooltip": "Specify the requester name, in the JSON format, who is requesting the creation of the ticket in ServiceDesk Plus MSP. For example, {\"name\":\"Guest\", \"id\":\"3\"}",
-          "description": "Specify the requester name, in the JSON format, who is requesting the creation of the ticket in ServiceDesk Plus MSP. For example, {\"name\":\"Guest\", \"id\":\"3\"}"
+          "description": "Specify the requester name, in JSON format, who is requesting the creation of the ticket in ServiceDesk Plus MSP. For example, {\"name\":\"Guest\", \"id\":\"3\"}"
         },
         {
           "title": "Description",
@@ -499,7 +499,7 @@
           "type": "text",
           "name": "description",
           "tooltip": "Specify the description of the ticket request that you want to create in ServiceDesk Plus MSP.",
-          "description": "(Optional) Specify the description of the ticket request that you want to create in ServiceDesk Plus MSP."
+          "description": "(Optional) Specify the description of the ticket request to create in ServiceDesk Plus MSP."
         },
         {
           "title": "Request Type",
@@ -509,8 +509,8 @@
           "type": "text",
           "name": "request_type",
           "value": "",
-          "tooltip": "Specify the type of ticket request that you want to create in ServiceDesk Plus MSP. \nRequest type can be Incident, Request For Information, etc.",
-          "description": "(Optional) Specify the type of ticket request that you want to create in ServiceDesk Plus MSP. \nRequest type can be Incident, Request For Information, etc."
+          "tooltip": "Specify the type of ticket request to create in ServiceDesk Plus MSP. Request type can be Incident, Request For Information, etc.",
+          "description": "(Optional) Specify the type of ticket request to create in ServiceDesk Plus MSP. Request type can be Incident, Request For Information, etc."
         },
         {
           "title": "Status",
@@ -520,7 +520,7 @@
           "type": "select",
           "name": "status",
           "tooltip": "Select the status that you want to assign to the ticket request you want to create in ServiceDesk Plus MSP.",
-          "description": "(Optional) Select the status that you want to assign to the ticket request you want to create in ServiceDesk Plus MSP. You can choose between Assigned, Cancelled, Closed, In Progress, Onhold, Open, Resolved etc.",
+          "description": "(Optional) Select the status of the ticket request to create in ServiceDesk Plus MSP. You can choose from following options: Assigned, Cancelled, Closed, In Progress, Onhold, Open, Resolved, etc. This parameter makes an API call named get_all_statuses to dynamically populate its dropdown selections.",
           "apiOperation": "get_all_statuses"
         },
         {
@@ -531,8 +531,8 @@
           "type": "select",
           "name": "priority",
           "apiOperation": "get_all_priorities",
-          "tooltip": "Select the priority that you want to assign to the ticket request you want to create in ServiceDesk Plus MSP.",
-          "description": "(Optional) Select the priority that you want to assign to the ticket request you want to create in ServiceDesk Plus MSP. You can choose between High, Low, Medium, Normal etc."
+          "tooltip": "Select the priority of the ticket request to create in ServiceDesk Plus MSP.",
+          "description": "(Optional) Select the priority of the ticket request to create in ServiceDesk Plus MSP. You can choose from the following options: High, Low, Medium, Normal, etc. This parameter will make an API call named get_all_priorities to dynamically populate its dropdown selections."
         },
         {
           "title": "Urgency",
@@ -542,7 +542,7 @@
           "type": "select",
           "name": "urgency",
           "tooltip": "Select the urgency that you want to assign to the ticket request you want to create in ServiceDesk Plus MSP.",
-          "description": "(Optional) Select the urgency that you want to assign to the ticket request you want to create in ServiceDesk Plus MSP. You can choose between High, Low, Normal, Urgent etc.",
+          "description": "(Optional) Select the urgency that you want to assign to the ticket request you want to create in ServiceDesk Plus MSP. You can choose from the following options: High, Low, Normal, Urgent, etc. This parameter will make an API call named get_all_urgencies to dynamically populate its dropdown selections",
           "apiOperation": "get_all_urgencies"
         },
         {
@@ -553,8 +553,8 @@
           "type": "text",
           "name": "group",
           "value": "",
-          "tooltip": "Specify the group that you want to assign to the ticket request you want to create in ServiceDesk Plus MSP.",
-          "description": "(Optional) Specify the group that you want to assign to the ticket request you want to create in ServiceDesk Plus MSP. \nGroup can be Hardware Problems, Network, Printer Problems, etc"
+          "tooltip": "Specify the group that you want to assign to the ticket request being created in ServiceDesk Plus MSP.",
+          "description": "(Optional) Specify the group that you want to assign to the ticket request being created in ServiceDesk Plus MSP. Group can be Hardware Problems, Network, Printer Problems, etc "
         },
         {
           "title": "MSP Site Details",
@@ -563,8 +563,8 @@
           "visible": true,
           "type": "json",
           "name": "site",
-          "tooltip": "MSP site details in Service Desk Plus. eg. {\"id\":302 ,\n\"name\":\"India-Pune\"}",
-          "description": "MSP site details in Service Desk Plus to which this request will be added to. eg. {\"id\":302 ,\n\"name\":\"India-Pune\"}"
+          "tooltip": "Specify the MSP site details in Service Desk Plus to which this request is to be added. eg. {\"id\":302 ,\n\"name\":\"India-Pune\"}",
+          "description": "Specify the MSP site details in Service Desk Plus to which this request is to be added. eg. {\"id\":302 , \"name\":\"India-Pune\"}"
         },
         {
           "title": "MSP Account Details",
@@ -573,8 +573,8 @@
           "visible": true,
           "type": "json",
           "name": "account",
-          "tooltip": "MSP account details in Service Desk Plus. eg. {\"id\":\"1\" ,\n\"name\":\"My Org Inc\"}",
-          "description": "MSP account details in Service Desk Plus to which this request will be added to. eg. {\"id\":\"1\" ,\n\"name\":\"My Org Inc\"}"
+          "tooltip": "Specify the MSP account details in Service Desk Plus to which this request is to be added. eg. {\"id\":\"1\" ,\n\"name\":\"My Org Inc\"}",
+          "description": "Specify the MSP account details in Service Desk Plus to which this request is to be added. eg. {\"id\":\"1\" , \"name\":\"My Org Inc\"}"
         },
         {
           "title": "Other Fields",
@@ -584,7 +584,7 @@
           "type": "json",
           "name": "other_fields",
           "tooltip": "Add custom fields, in the JSON format, to the ticket request that you want to create in ServiceDesk Plus MSP. For example, \n{\n  \"level\": {\n    \"name\": \"Tier 3\"\n  },\n  \"category\": {\n    \"name\": \"Network\"\n  }\n}",
-          "description": "(Optional) Add custom fields, in the JSON format, to the ticket request that you want to create in ServiceDesk Plus MSP. For example, \n{\n  \"level\": {\n    \"name\": \"Tier 3\"\n  },\n  \"category\": {\n    \"name\": \"Network\"\n  }\n}"
+          "description": "(Optional) Add custom fields, in the JSON format, to the ticket request that you want to create in ServiceDesk Plus MSP. For example, { \"level\": { \"name\": \"Tier 3\" }, \"category\": { \"name\": \"Network\" } }"
         }
       ]
     },
@@ -823,8 +823,8 @@
           "visible": true,
           "type": "select",
           "name": "status",
-          "tooltip": "Select the status that you want to assign to the ticket request you want to update in ServiceDesk Plus MSP.",
-          "description": "(Optional) Select the status that you want to assign to the ticket request you want to update in ServiceDesk Plus MSP. You can choose between Assigned, Cancelled, Closed, In Progress, Onhold, Open, Resolved etc.",
+          "tooltip": "Select the status of the ticket request to update in ServiceDesk Plus MSP.",
+          "description": "(Optional) Select the status of the ticket request to update in ServiceDesk Plus MSP. You can choose from following options: Assigned, Cancelled, Closed, In Progress, Onhold, Open, Resolved, etc. This parameter makes an API call named get_all_statuses to dynamically populate its dropdown selections.",
           "apiOperation": "get_all_statuses"
         },
         {
@@ -835,7 +835,7 @@
           "type": "select",
           "name": "urgency",
           "tooltip": "Select the urgency that you want to assign to the ticket request you want to update in ServiceDesk Plus MSP.",
-          "description": "(Optional) Select the urgency that you want to assign to the ticket request you want to update in ServiceDesk Plus MSP. You can choose between High, Low, Normal, Urgent etc.",
+          "description": "(Optional) Select the urgency that you want to assign to the ticket request you want to update in ServiceDesk Plus MSP. You can choose from the following options: High, Low, Normal, Urgent, etc. This parameter will make an API call named get_all_urgencies to dynamically populate its dropdown selections",
           "apiOperation": "get_all_urgencies"
         },
         {
@@ -845,8 +845,8 @@
           "visible": true,
           "type": "select",
           "name": "priority",
-          "tooltip": "Select the priority that you want to assign to the ticket request you want to update in ServiceDesk Plus MSP.",
-          "description": "(Optional) Select the priority that you want to assign to the ticket request you want to update in ServiceDesk Plus MSP. You can choose between High, Low, Medium, Normal etc.",
+          "tooltip": "Select the priority of the ticket request to update in ServiceDesk Plus MSP.",
+          "description": "(Optional) Select the priority of the ticket request to update in ServiceDesk Plus MSP. You can choose from the following options: High, Low, Medium, Normal, etc. This parameter will make an API call named get_all_priorities to dynamically populate its dropdown selections.",
           "apiOperation": "get_all_priorities"
         },
         {
@@ -856,8 +856,8 @@
           "visible": true,
           "type": "json",
           "name": "site",
-          "tooltip": "MSP site details in Service Desk Plus. eg. {\"id\":302 ,\n\"name\":\"India-Pune\"}",
-          "description": "MSP site details in Service Desk Plus to which this request will be updated to. eg. {\"id\":302 ,\n\"name\":\"India-Pune\"}"
+          "tooltip": "Specify the MSP site details in Service Desk Plus to which this request is to be updated. eg. {\"id\":302 ,\n\"name\":\"India-Pune\"}",
+          "description": "Specify the MSP site details in Service Desk Plus to which this request is to be updated. eg. {\"id\":302 , \"name\":\"India-Pune\"}"
         },
         {
           "title": "Other Fields",
@@ -867,7 +867,7 @@
           "type": "json",
           "name": "other_fields",
           "tooltip": "Add custom fields, in the JSON format, to the ticket request that you want to update in ServiceDesk Plus MSP. For example, {\n  \"level\": {\n    \"name\": \"Tier 3\"\n  },\n  \"category\": {\n    \"name\": \"Network\"\n  }\n}.",
-          "description": "(Optional) Add custom fields, in the JSON format, to the ticket request that you want to update in ServiceDesk Plus MSP. For example, {\n  \"level\": {\n    \"name\": \"Tier 3\"\n  },\n  \"category\": {\n    \"name\": \"Network\"\n}\n}"
+          "description": "(Optional) Add custom fields, in the JSON format, to the ticket request that you want to update in ServiceDesk Plus MSP. For example, { \"level\": { \"name\": \"Tier 3\" }, \"category\": { \"name\": \"Network\" } }"
         }
       ]
     },
@@ -943,7 +943,7 @@
           "name": "closure_code",
           "apiOperation": "get_all_request_closure_codes",
           "tooltip": "Select the closure code that you want to assign to the ticket that you want to close in ServiceDesk Plus MSP.",
-          "description": "(Optional) Select the closure code that you want to assign to the ticket that you want to close in ServiceDesk Plus MSP. You can choose between Cancelled, Failed, Moved, Postponed, Success, or Unable to Reproduce."
+          "description": "(Optional) Select the closure code that you want to assign to the ticket that you want to close in ServiceDesk Plus MSP. You can choose from following options: Cancelled, Failed, Moved, Postponed, Success, Unable to Reproduce, etc. This parameter will make an API call named get_all_request_closure_codes to dynamically populate its dropdown selections."
         },
         {
           "title": "Request Closure Comments",
@@ -960,7 +960,7 @@
     {
       "operation": "delete_request",
       "title": "Delete Ticket",
-      "description": "Deletes a ticket (moves it to 'trash') from ServiceDesk Plus MSP based on the ticket request ID you have specified.",
+      "description": "Deletes a ticket (moves it to Trash) from ServiceDesk Plus MSP based on the ticket request ID you have specified.",
       "category": "investigation",
       "annotation": "delete_request",
       "output_schema": {
@@ -1170,14 +1170,14 @@
           "type": "text",
           "name": "request_id",
           "tooltip": "Specify the ID of the ticket that you want to delete (move to trash) from ServiceDesk Plus MSP.",
-          "description": "Specify the ID of the ticket that you want to delete (move to trash) from ServiceDesk Plus MSP."
+          "description": "Specify the ID of the ticket that you want to delete (move to Trash) from ServiceDesk Plus MSP."
         }
       ]
     },
     {
       "operation": "delete_request_from_trash",
       "title": "Delete Ticket From Trash",
-      "description": "Permanently deletes a ticket from the 'Trash' in ServiceDesk Plus MSP based on the Ticket Request ID you have specified.",
+      "description": "Permanently deletes a ticket from the Trash in ServiceDesk Plus MSP based on the Ticket Request ID you have specified.",
       "category": "investigation",
       "annotation": "delete_request_from_trash",
       "output_schema": {
@@ -1195,8 +1195,8 @@
           "visible": true,
           "type": "text",
           "name": "request_id",
-          "tooltip": "Specify the ID of the ticket that you want to permanently delete from the 'trash' in ServiceDesk Plus MSP.",
-          "description": "Specify the ID of the ticket that you want to permanently delete from the 'trash' in ServiceDesk Plus MSP."
+          "tooltip": "Specify the ID of the ticket that you want to permanently delete from the Trash in ServiceDesk Plus MSP.",
+          "description": "Specify the ID of the ticket that you want to permanently delete from the Trash in ServiceDesk Plus MSP."
         }
       ]
     },
@@ -1350,7 +1350,7 @@
           "name": "add_to_linked_requests",
           "value": false,
           "tooltip": "Select this checkbox, i.e. set it to 'True', to add the note to the linked requests. By default, this is set as 'False'.",
-          "description": "Select this checkbox, i.e. set it to 'True', to add the note to the linked requests. By default, this is set as 'False'."
+          "description": "Select this checkbox, i.e. set it to True, to add the note to the linked requests. By default, this is set as False."
         },
         {
           "title": "Notify Technician",
@@ -1701,7 +1701,7 @@
           "editable": true,
           "type": "text",
           "tooltip": "Specify the ID of the user whose details you want to retrieve from ServiceDesk Plus MSP.",
-          "description": "Specify the ID of the user whose details you want to retrieve from ServiceDesk Plus MSP."
+          "description": "(Optional) Specify the ID of the user whose details you want to retrieve from ServiceDesk Plus MSP."
         },
         {
           "title": "User Name",
@@ -1711,7 +1711,7 @@
           "editable": true,
           "type": "text",
           "tooltip": "Specify the name of the user whose details you want to retrieve from ServiceDesk Plus MSP.",
-          "description": "Specify the name of the user whose details you want to retrieve from ServiceDesk Plus MSP."
+          "description": "(Optional) Specify the name of the user whose details you want to retrieve from ServiceDesk Plus MSP."
         },
         {
           "title": "Employee ID",
@@ -1721,7 +1721,7 @@
           "editable": true,
           "type": "text",
           "tooltip": "Specify the employee ID of the user whose details you want to retrieve from ServiceDesk Plus MSP.",
-          "description": "Specify the employee ID of the user whose details you want to retrieve from ServiceDesk Plus MSP."
+          "description": "(Optional) Specify the employee ID of the user whose details you want to retrieve from ServiceDesk Plus MSP."
         },
         {
           "title": "Email ID",
@@ -1731,7 +1731,7 @@
           "editable": true,
           "type": "text",
           "tooltip": "Specify the email ID of the user whose details you want to retrieve from ServiceDesk Plus MSP.",
-          "description": "Specify the email ID of the user whose details you want to retrieve from ServiceDesk Plus MSP."
+          "description": "(Optional) Specify the email ID of the user whose details you want to retrieve from ServiceDesk Plus MSP."
         },
         {
           "title": "User Type",
@@ -1741,7 +1741,7 @@
           "editable": true,
           "type": "select",
           "tooltip": "Select the type of user whose details you want to retrieve from ServiceDesk Plus MSP. ",
-          "description": "Select the type of user whose details you want to retrieve from ServiceDesk Plus MSP. You can choose between User or Technician.",
+          "description": "(Optional) Select the type of user whose details you want to retrieve from ServiceDesk Plus MSP. You can choose between User or Technician.",
           "options": [
             "User",
             "Technician"
@@ -1755,7 +1755,7 @@
           "type": "json",
           "name": "other_fields",
           "tooltip": "Specify custom fields, in the JSON format, that you want to use for filtering requesters whose details you want to retrieve from ServiceDesk Plus MSP. For example, { \"name\": \"abc\" } ",
-          "description": "Specify custom fields, in the JSON format, that you want to use for filtering requesters whose details you want to retrieve from ServiceDesk Plus MSP. For example, { \"name\": \"abc\" } "
+          "description": "(Optional) Specify custom fields, in the JSON format, that you want to use for filtering requesters whose details you want to retrieve from ServiceDesk Plus MSP. For example, { \"name\": \"abc\" }."
         },
         {
           "title": "Fields Required",
@@ -1765,8 +1765,8 @@
           "editable": true,
           "type": "text",
           "placeholder": " For example, name,status,phone,mobile,jobtitle",
-          "tooltip": "Specify the fields required to be retrieved for the users you want to retrieve from ServiceDesk Plus MSP. You can specify multiple fields using a comma separator.",
-          "description": "Specify the fields required to be retrieved for the users you want to retrieve from ServiceDesk Plus MSP. You can specify multiple fields using a comma separator. For example, name,status,phone,mobile,jobtitle"
+          "tooltip": "Specify the fields required to be retrieved for the users you want to retrieve from ServiceDesk Plus MSP. You can specify multiple comma-separated values.",
+          "description": "(Optional) Specify the fields required to be retrieved for the users you want to retrieve from ServiceDesk Plus MSP. You can specify multiple comma-separated values. For example, name,status,phone,mobile,jobtitle."
         },
         {
           "title": "Sort By",
@@ -1776,7 +1776,7 @@
           "editable": true,
           "type": "text",
           "tooltip": "Specify the field using which you want to sort the users retrieved from ServiceDesk Plus MSP. For example, name",
-          "description": "Specify the field using which you want to sort the users retrieved from ServiceDesk Plus MSP. For example, name"
+          "description": "(Optional) Specify the field using which you want to sort the users retrieved from ServiceDesk Plus MSP. For example, name."
         },
         {
           "title": "Sort Order",
@@ -1790,7 +1790,7 @@
             "Descending"
           ],
           "tooltip": "Select the order in which you want to sort the users retrieved from ServiceDesk Plus MSP. You can choose between Ascending or Descending.",
-          "description": "Select the order in which you want to sort the users retrieved from ServiceDesk Plus MSP. You can choose between Ascending or Descending."
+          "description": "(Optional) Select the order in which you want to sort the users retrieved from ServiceDesk Plus MSP. You can choose from following options: Ascending or Descending"
         },
         {
           "title": "Start From",
@@ -1799,8 +1799,8 @@
           "required": false,
           "editable": true,
           "type": "integer",
-          "tooltip": "Specify the index of the first item (user) to be returned by this operation. This parameter is useful if you want to get a subset of records. \nNote: You can specify the minimum number as 1.",
-          "description": "Specify the index of the first item (user) to be returned by this operation. This parameter is useful if you want to get a subset of records. \nNote: You can specify the minimum number as 1."
+          "tooltip": "Specify the index of the first item to be returned by this operation. This parameter is useful if you want to get a subset of records. Note: You can specify the minimum number as 1.",
+          "description": "(Optional) Specify the index of the first item to be returned by this operation. This parameter is useful if you want to get a subset of records. By default, this is set as 1."
         },
         {
           "title": "Size",
@@ -1809,8 +1809,8 @@
           "required": false,
           "editable": true,
           "type": "integer",
-          "tooltip": "Specify the maximum number of records (users) to be returned by this operation in a single request.By default it will retrieve 10 records. Note: You can specify the minimum number as 1 and Maximum of only 100 records can retrieved at a time.",
-          "description": "Specify the maximum number of records (users) to be returned by this operation in a single request.By default it will retrieve 10 records. Note: You can specify the minimum number as 1 and Maximum of only 100 records can retrieved at a time."
+          "tooltip": "Specify the index of the last item to be returned by this operation in a single request. By default, it retrieves 10 records.\\nNOTE: You can specify the minimum value as 1 and maximum of 100.",
+          "description": "(Optional) Specify the index of the last item to be returned by this operation in a single request. By default, it retrieves 10 records. NOTE: You can specify the minimum value as 1 and maximum of 100."
         }
       ]
     },
@@ -1877,8 +1877,8 @@
           "required": false,
           "editable": true,
           "type": "integer",
-          "tooltip": "Specify the index of the record (Site) to be returned by this operation. This parameter is useful if you want to get a subset of records. \nNote: You can specify the minimum number as 1.",
-          "description": "Specify the index of the record (Site) to be returned by this operation. This parameter is useful if you want to get a subset of records. \nNote: You can specify the minimum number as 1."
+          "tooltip": "Specify the index of the first item to be returned by this operation. This parameter is useful if you want to get a subset of records. By default, this is set as 1. Note: You can specify the minimum number as 1.",
+          "description": "(Optional) Specify the index of the first item to be returned by this operation. This parameter is useful if you want to get a subset of records. By default, this is set as 1."
         },
         {
           "title": "Size",
@@ -1888,7 +1888,7 @@
           "editable": true,
           "type": "integer",
           "tooltip": "Specify the maximum number of records (sites) to be returned by this operation in a single request.By default it will retrieve 10 records. Note: You can specify the minimum number as 1 and Maximum of only 100 records can retrieved at a time.",
-          "description": "Specify the maximum number of records (sites) to be returned by this operation in a single request.By default it will retrieve 10 records. Note: You can specify the minimum number as 1 and Maximum of only 100 records can retrieved at a time."
+          "description": "(Optional) Specify the index of the last item to be returned by this operation in a single request. By default, it retrieves 10 records.\nNOTE: You can specify the minimum value as 1 and maximum of 100."
         }
       ]
     },

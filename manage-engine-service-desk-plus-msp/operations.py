@@ -35,7 +35,6 @@ class ManageEngine:
             response = requests.request(method=method, url=url,
                                         params=params, headers=headers, data=data, verify=self.verify_ssl)
             if response.ok:
-                logger.warn(response.json())
                 return response.json()
             elif response.status_code == 401:
                 logger.info('Unauthorized: Invalid credentials')
