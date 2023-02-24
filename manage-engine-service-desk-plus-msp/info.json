@@ -184,7 +184,7 @@
           "type": "text",
           "name": "subject",
           "tooltip": "Specify the subject of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP.",
-          "description": "(Optional) Specify the subject of the ticket request for which you want to retrieve details from ServiceDesk Plus MSP."
+          "description": "(Optional) Specify the subject of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP."
         },
         {
           "title": "Status",
@@ -194,7 +194,7 @@
           "type": "select",
           "name": "status.name",
           "tooltip": "Select the status of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP.",
-          "description": "(Optional) Select the status of the ticket request for which you want to retrieve details from ServiceDesk Plus MSP. You can choose from following options: Assigned, Cancelled, Closed, In Progress, Onhold, Open, Resolved, etc. This parameter makes an API call named get_all_statuses to dynamically populate its dropdown selections.",
+          "description": "(Optional) Select the status of the ticket request for which you want to retrieve tickets from ServiceDesk Plus MSP. You can choose from following options: Assigned, Cancelled, Closed, In Progress, Onhold, Open, Resolved, etc. This parameter makes an API call named get_all_statuses to dynamically populate its dropdown selections.",
           "apiOperation": "get_all_statuses"
         },
         {
@@ -283,7 +283,7 @@
           "visible": true,
           "type": "integer",
           "name": "size",
-          "tooltip": "Specify the maximum number of records (tickets) to be returned by this operation in a single request.By default it will retrieve 10 records. Note: You can specify the minimum number as 1 and Maximum of only 100 records can retrieved at a time.",
+          "tooltip": "Specify the index of the last item to be returned by this operation in a single request. By default, it retrieves 10 records.\nNOTE: You can specify the minimum value as 1 and maximum of 100.",
           "description": "(Optional) Specify the index of the last item to be returned by this operation in a single request. By default, it retrieves 10 records.\nNOTE: You can specify the minimum value as 1 and maximum of 100."
         }
       ]
@@ -488,7 +488,7 @@
           "visible": true,
           "type": "json",
           "name": "requester",
-          "tooltip": "Specify the requester name, in the JSON format, who is requesting the creation of the ticket in ServiceDesk Plus MSP. For example, {\"name\":\"Guest\", \"id\":\"3\"}",
+          "tooltip": "Specify the requester name, in JSON format, who is requesting the creation of the ticket in ServiceDesk Plus MSP. For example, {\"name\":\"Guest\", \"id\":\"3\"}",
           "description": "Specify the requester name, in JSON format, who is requesting the creation of the ticket in ServiceDesk Plus MSP. For example, {\"name\":\"Guest\", \"id\":\"3\"}"
         },
         {
@@ -498,7 +498,7 @@
           "visible": true,
           "type": "text",
           "name": "description",
-          "tooltip": "Specify the description of the ticket request that you want to create in ServiceDesk Plus MSP.",
+          "tooltip": "Specify the description of the ticket request to create in ServiceDesk Plus MSP.",
           "description": "(Optional) Specify the description of the ticket request to create in ServiceDesk Plus MSP."
         },
         {
@@ -519,7 +519,7 @@
           "visible": true,
           "type": "select",
           "name": "status",
-          "tooltip": "Select the status that you want to assign to the ticket request you want to create in ServiceDesk Plus MSP.",
+          "tooltip": "Select the status of the ticket request to create in ServiceDesk Plus MSP.",
           "description": "(Optional) Select the status of the ticket request to create in ServiceDesk Plus MSP. You can choose from following options: Assigned, Cancelled, Closed, In Progress, Onhold, Open, Resolved, etc. This parameter makes an API call named get_all_statuses to dynamically populate its dropdown selections.",
           "apiOperation": "get_all_statuses"
         },
@@ -583,8 +583,8 @@
           "visible": true,
           "type": "json",
           "name": "other_fields",
-          "tooltip": "Add custom fields, in the JSON format, to the ticket request that you want to create in ServiceDesk Plus MSP. For example, \n{\n  \"level\": {\n    \"name\": \"Tier 3\"\n  },\n  \"category\": {\n    \"name\": \"Network\"\n  }\n}",
-          "description": "(Optional) Add custom fields, in the JSON format, to the ticket request that you want to create in ServiceDesk Plus MSP. For example, { \"level\": { \"name\": \"Tier 3\" }, \"category\": { \"name\": \"Network\" } }"
+          "tooltip": "Add custom fields, in JSON format, to the ticket request that you want to create in ServiceDesk Plus MSP. For example, \n{\n  \"level\": {\n    \"name\": \"Tier 3\"\n  },\n  \"category\": {\n    \"name\": \"Network\"\n  }\n}",
+          "description": "(Optional) Add custom fields, in JSON format, to the ticket request that you want to create in ServiceDesk Plus MSP. For example, { \"level\": { \"name\": \"Tier 3\" }, \"category\": { \"name\": \"Network\" } }"
         }
       ]
     },
@@ -1349,7 +1349,7 @@
           "type": "checkbox",
           "name": "add_to_linked_requests",
           "value": false,
-          "tooltip": "Select this checkbox, i.e. set it to 'True', to add the note to the linked requests. By default, this is set as 'False'.",
+          "tooltip": "Select this checkbox, i.e. set it to True, to add the note to the linked requests. By default, this is set as False.",
           "description": "Select this checkbox, i.e. set it to True, to add the note to the linked requests. By default, this is set as False."
         },
         {
@@ -1789,7 +1789,7 @@
             "Ascending",
             "Descending"
           ],
-          "tooltip": "Select the order in which you want to sort the users retrieved from ServiceDesk Plus MSP. You can choose between Ascending or Descending.",
+          "tooltip": "Select the order in which you want to sort the users retrieved from ServiceDesk Plus MSP.",
           "description": "(Optional) Select the order in which you want to sort the users retrieved from ServiceDesk Plus MSP. You can choose from following options: Ascending or Descending"
         },
         {
